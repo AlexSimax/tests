@@ -1,23 +1,21 @@
-// An example configuration file.
 exports.config = {
   directConnect: true,
 
-  // Capabilities to be passed to the webdriver instance.
   capabilities: {
     browserName: 'chrome',
   },
 
-  // Framework to use. Jasmine is recommended.
-  framework: 'jasmine',
+  framework: 'mocha',
 
-  // Spec patterns are relative to the current working directory when
-  // protractor is called.
   specs: ['spec.js'],
 
-  ignoreSynchronization: true,
+  onPrepare: async function(){
+    await browser.waitForAngularEnabled(false);
+  },
 
-  // Options to be passed to Jasmine.
-  jasmineNodeOpts: {
-    defaultTimeoutInterval: 3000
+  mochaOpts: {
+    reporter: "spec",
+    // slow: 3000, 
+    timeout: 100000
   }
 }
