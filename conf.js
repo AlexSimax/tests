@@ -17,8 +17,7 @@ exports.config = {
   ignoreSynchronization: true,
 
   // Options to be passed to Jasmine.
-  mochaOpts: {
-    reporter: 'spec',
-    slow: 3000,
-  },
+  jasmineNodeOpts: {
+    defaultTimeoutInterval: 3000
+  }
 }
