@@ -7,7 +7,7 @@ exports.config = {
   
     framework: 'mocha',
   
-    specs: ['specs/spec.js'],
+    specs: ['../specs/spec.js'],
   
     onPrepare: async function(){
       await browser.waitForAngularEnabled(false);
@@ -16,6 +16,6 @@ exports.config = {
   
     mochaOpts: {
       reporter: "spec",
-      timeout: 3000
+      timeout: 300000
     }
   } 
