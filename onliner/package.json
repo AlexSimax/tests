@@ -1,0 +1,15 @@
+{
+  "name": "onliner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor ./e2e/config/conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4"
+  }
+}
