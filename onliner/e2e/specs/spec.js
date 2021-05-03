@@ -7,7 +7,7 @@ describe('Onliner homepage and navigation', () => {
 
     const input_button_nav = await element(
       by.xpath(
-        '//*[@id="container"]/div/div/div/div/div[1]/div/div[1]/ul[2]/li[2]/a/span/span'
+        '//*[@id="container"]//span[contains(text(), "Наушники и гарнитуры")]'
       )
     )
     const inputText = await input_button_nav.getText()
@@ -20,11 +20,10 @@ describe('Onliner homepage and navigation', () => {
 
     const input_button_nav = await element(
       by.xpath(
-        '//*[@id="container"]/div/div/div/div/div[1]/div/div[1]/ul[2]/li[2]/a/span/span'
+        '//*[@id="container"]//span[contains(text(), "Наушники и гарнитуры")]'
       )
     )
     await input_button_nav.click()
-    // await browser.sleep(3000)
   })
 
   it('should be the same text of authorization block', async function () {
@@ -44,18 +43,21 @@ describe('Onliner homepage and navigation', () => {
     const input_button = await element(
       by.xpath('//*[@id="userbar"]/div[2]/div/div/div[1]')
     )
-    const inputText_enter = await input_button.click()
+    await input_button.click()
     await element(by.id('auth-container'))
     await element(by.linkText('Зарегистрироваться на Onliner')).click()
     await element(by.xpath("//input[@type='email']")).sendKeys(
-      'Aleksandr_Simakov1@epam.com'
+      'abc@mail.ru'
     )
     await element(by.xpath("//input[@type='password']")).sendKeys('12345678abc')
     await element(
       by.xpath('//input[@placeholder="Повторите пароль"]')
     ).sendKeys('12345678abc')
+    const buttonText = await element(by.xpath('//button')).getText()
+    expect(buttonText).to.equal('Зарегистрироваться')
+
     await element(by.xpath('//button')).click()
 
-    await browser.sleep(3000)
+    // await browser.sleep(3000)
   })
 })
