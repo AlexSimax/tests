@@ -49,15 +49,15 @@ describe('Onliner homepage and navigation', () => {
     await element(by.xpath("//input[@type='email']")).sendKeys(
       'abc@mail.ru'
     )
-    await element(by.xpath("//input[@type='password']")).sendKeys('12345678abc')
+    await element(by.xpath("//input[@type='password']")).sendKeys('12345678abcd')
     await element(
       by.xpath('//input[@placeholder="Повторите пароль"]')
-    ).sendKeys('12345678abc')
+    ).sendKeys('12345678abcd')
     const buttonText = await element(by.xpath('//button')).getText()
     expect(buttonText).to.equal('Зарегистрироваться')
 
     await element(by.xpath('//button')).click()
 
-    // await browser.sleep(3000)
+    await browser.sleep(3000)
   })
 })
