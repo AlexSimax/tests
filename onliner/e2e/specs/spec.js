@@ -59,6 +59,6 @@ describe('Onliner homepage and navigation', () => {
     await element(by.xpath('//button')).click()
 
     await browser.sleep(3000)
-    console.log(' ok222555');
+    console.log(' ok222555345645r6');
   })
 })
